@@ -1,0 +1,432 @@
+/* ===== ESTILOS GERAIS E VARIÁVEIS (TEMA DARK) ===== */
+:root {
+    --cor-primaria: #00ff99;      /* Verde-limão como cor de destaque */
+    --cor-secundaria: #00c4ff;   /* Um azul claro para links e hovers */
+    --cor-fundo: #121212;         /* Fundo quase preto, padrão em apps dark */
+    --cor-superficie: #1e1e1e;   /* Um cinza um pouco mais claro para 'elevar' elementos */
+    --cor-texto: #e0e0e0;         /* Cinza muito claro para textos, mais confortável que branco puro */
+    --cor-branco: #ffffff;
+    --fonte-principal: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--fonte-principal);
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    color: var(--cor-primaria);
+    font-weight: 600;
+}
+
+section {
+    padding: 80px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+section[id] {
+    scroll-margin-top: 70px;
+}
+
+a {
+    color: var(--cor-secundaria);
+    text-decoration: none;
+}
+
+/* ===== CABEÇALHO E NAVEGAÇÃO ===== */
+.main-header {
+    background-color: var(--cor-superficie);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.main-nav {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 70px;
+}
+
+.nav-logo {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--cor-branco);
+    text-decoration: none;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--cor-texto);
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: var(--cor-primaria);
+}
+
+/* ===== SEÇÃO INÍCIO (HERÓI) ===== */
+.hero-section {
+    margin-top: 70px;
+    height: calc(100vh - 70px);
+    max-width: none;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--cor-branco);
+    background: linear-gradient(rgba(18, 18, 18, 0.7), rgba(18, 18, 18, 0.7));
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: url('assets/images/Inicio.png') no-repeat center center/cover;
+    filter: blur(5px);
+    z-index: -1;
+}
+
+.hero-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-size: 3.5em;
+    color: var(--cor-branco);
+    margin-bottom: 10px;
+}
+
+.hero-subtitle {
+    font-size: 1.5em;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    color: var(--cor-primaria);
+}
+
+.hero-socials a {
+    color: var(--cor-texto);
+    font-size: 2em;
+    margin: 0 15px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.hero-socials a:hover {
+    color: var(--cor-primaria);
+    transform: scale(1.2);
+}
+
+/* ===== ESTILOS PADRÃO PARA TÍTULOS DE SEÇÃO ===== */
+section h2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 50px;
+}
+
+#sobre {
+    padding-top: 100px;
+}
+
+/* ===== SEÇÃO PROJETOS ===== */
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+}
+
+/* Para telas maiores, projetos ficam lado a lado */
+@media (min-width: 768px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.project-card {
+    background-color: var(--cor-superficie);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.project-image-container {
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+}
+
+.project-card img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.project-image-container:hover img {
+    transform: scale(1.05);
+}
+
+.project-info {
+    padding: 25px;
+}
+
+.project-info h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.project-tags {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.project-tags span {
+    background-color: var(--cor-primaria);
+    color: #000;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    font-weight: 600;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+/* ===== SEÇÃO EXPERIÊNCIA ===== */
+.experience-item {
+    background-color: var(--cor-superficie);
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    border-left: 5px solid var(--cor-primaria);
+}
+.experience-item:last-child {
+    margin-bottom: 0;
+}
+.experience-company {
+    font-style: italic;
+    margin-bottom: 15px;
+    color: var(--cor-secundaria);
+}
+.experience-item ul {
+    list-style-position: inside;
+}
+
+
+/* ===== SEÇÃO HABILIDADES ===== */
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Apenas 1 coluna sempre */
+    gap: 30px;
+}
+
+/* A REGRA @MEDIA PARA .skills-grid FOI REMOVIDA */
+
+.skill-category {
+    background-color: var(--cor-superficie);
+    padding: 25px;
+    border-radius: 8px;
+}
+
+.skill-category h3 {
+    margin-bottom: 15px;
+    font-size: 1.4em;
+}
+
+.skill-category ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.skill-category ul li {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.skill-category ul li:last-child {
+    margin-bottom: 0;
+}
+
+/* ===== SEÇÃO EDUCAÇÃO ===== */
+.education-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+.education-item {
+    background-color: var(--cor-superficie);
+    padding: 25px;
+    border-radius: 8px;
+}
+.education-item h3 {
+    font-size: 1.4em;
+}
+.education-item ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
+.education-item ul li {
+    margin-bottom: 5px;
+}
+
+
+/* ===== SEÇÃO CONTATO ===== */
+.contact-section {
+    text-align: center;
+}
+
+.contact-section > p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.contact-info {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.contact-info p {
+    font-size: 1.1em;
+    margin: 10px 0;
+}
+
+.contact-info p i {
+    margin-right: 10px;
+    color: var(--cor-primaria);
+}
+
+.contact-socials a {
+    color: var(--cor-texto);
+    font-size: 2.5em;
+    margin: 0 20px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-socials a:hover {
+    color: var(--cor-primaria);
+    transform: scale(1.2);
+}
+
+/* ===== RODAPÉ ===== */
+.main-footer {
+    background-color: var(--cor-superficie);
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+}
+
+/* ===== GALERIA LIGHTBOX (TELA CHEIA) ===== */
+.lightbox {
+    position: fixed;
+    z-index: 2000;
+    padding: 20px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90vh;
+    transition: transform 0.3s ease;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.lightbox-close:hover {
+    color: var(--cor-primaria);
+}
+
+.lightbox-prev, .lightbox-next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -30px;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    transition: 0.3s ease;
+    user-select: none;
+    -webkit-user-select: none;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-next {
+    right: 20px;
+    border-radius: 3px 0 0 3px;
+}
+
+.lightbox-prev {
+    left: 20px;
+    border-radius: 0 3px 3px 0;
+}
+
+.lightbox-prev:hover, .lightbox-next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
